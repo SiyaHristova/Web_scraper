@@ -8,12 +8,6 @@ The task is to develop web scraper for scraping blog posts, store the data, to m
 
 The scraping and managing the data should be created using TDD as approach.
 
-## Popularity among github community
-
-![Screenshot of git clones of the repo](github-clones-shot.png "git clones of the repo")
-
-_updated: 21.06.2021_
-
 ## Project's directories structure:
 
 ```
