@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div id="content">
+            <main id="primary" class="site-main">
+                <article>
+                    <header class="entry-header">
+                        <h1 class="entry-title" style="margin: auto; width: 60%; padding: 10px;">{{ post.title_1 }}</h1>
+                        <div class="entry-meta alt-font">
+                            <span class="posted-on">
+                                <time class="entry-date published">{{ post.date_of_publishing }}</time>
+                            </span>
+                            <span>Най-ползвани думи: {{ post['most_used_words'] }}</span>
+                            <span class="comments-links">
+                                <a href="#comments">Коментари</a>
+                            </span>
+                        </div>
+                    </header>
+                    <div class="entry-content">
+                        <a href="#content" style="text-decoration: none;">
+                            <p>{{ post.content[0] }}</p>
+                            <p>{{ post.content[1] }}</p>
+                            <p>{{ post.content[2] }}</p>
+                        </a>
+                    </div>
+                </article>
+                <div id="comments" class="comments-area">
+                    <h2 class="comments-title"><a id="comments">Коментари</a></h2>
+                    <ul class="comments-list">
+                        {% if post.comments %}
+                        {% for comment in post.comments %}
+                        <li>{{ comment[0] }}</li>
+                        <span>{{ comment[1] }}</span><br><br>
+                        {% endfor %}
+                        {% else %}
+                        <li>Няма коментари</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </main>
+        </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/css/styles.css" media="all">
+        <meta name="robots" content="noindex">
+        <meta name="googlebot-news" content="noindex" />
+        <meta property="og:locale" content="bg_BG">
+        <link rel="icon" href="/static/img/fav_icon-192x192.png" sizes="192x192">
+        <meta charset="UTF-8">
+        {% if title %}
+        <title>{{ title }} - Micro Macro Blog</title>
+        {% else %}
+        <title>Welcome to the Micro Macro Blog!</title>
+        {% endif %}
+    </head>
+    <body class="home blog home-front floral" style="--bg-image: url()">
+        <header id="masthead" class="site-header" role="banner">
+            <h1 class="site-title"><a href="/" rel="home">Микроблога на Сияна, Калина, Митко и Венци &#128013;</a></h1>
+            <nav id="site-navigation" class="main-navigation" role="navigation">
+                <div class="menu-main-menu-container">
+                    <ul id="primary-menu" class="menu">
+                        <li><a href="/">Начало</a></li>
+                        <li><a href="/">1</a></li>
+                        <li><a href="/page-2">2</a></li>
+                        <li><a href="/page-3">3</a></li>
+                        <li><a href="/page-4">4</a></li>
+                        <li><a href="/about">За нас</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <hr class="rule-dark">
+        </header>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

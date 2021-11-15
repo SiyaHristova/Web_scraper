@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <div id="content">
+            <main id="primary" class="site-main">
+                <header class="page-header">
+                    <h1 class="page-title">Здравей, {{ user.username }}! &#128075;</h1>
+                </header>
+                <h2 class="page-header">Скрейпнатото днес:</h2>
+                <div class="list" style="display: block;">
+                    {% for article in range(5) %}
+                    <article class="list-article" style="padding-bottom: 40pt;">
+                        <header class="entry-header">
+                            <div class="entry-content">
+                                <a href="/{{ article }}">
+                                    <img id="index_imgs" src="{{ imgs[article].img_url }}" alt="thumbnail" style="max-width: 30%; height: auto; float: left;">
+                                </a>
+                            </div>
+                            <div style="margin-left: 33%;">
+                                <span>
+                                    <p id="fancy_p">
+                                        <a
+                                        {% if url_for(request.endpoint) == "/page-2" %} href="/{{ article + 5 }}"
+                                        {% elif url_for(request.endpoint) == "/page-3" %} href="/{{ article + 10 }}"
+                                        {% elif url_for(request.endpoint) == "/page-4" %} href="/{{ article + 15 }}"
+                                        {% else %} href="/{{ article }}" {% endif %}> {{ articles[article].title_1 }}</a>
+                                    </p>
+                                </span>
+                                <span>
+                                    <p style="text-indent: 1rem">
+                                        <a
+                                        {% if url_for(request.endpoint) == "/page-2" %} href="/{{ article + 5 }}#content"
+                                        {% elif url_for(request.endpoint) == "/page-3" %} href="/{{ article + 10 }}#content"
+                                        {% elif url_for(request.endpoint) == "/page-4" %} href="/{{ article + 15 }}#content"
+                                        {% else %} href="/{{ article }}#content" {% endif %}">{{ articles[article].content[0][0:430] }}.....</a>
+                                    </p>
+                                </span>
+                                <span style="bottom: 0; left: 0; float: left;">
+                                    <time>{{ articles[article].date_of_publishing }}</time>
+                                </span>
+                                <span style="bottom: 0; right: 0; float: right;">
+                                    <a
+                                    {% if url_for(request.endpoint) == "/page-2" %} href="/{{ article + 5 }}#comments"
+                                    {% elif url_for(request.endpoint) == "/page-3" %} href="/{{ article + 10 }}#comments"
+                                    {% elif url_for(request.endpoint) == "/page-4" %} href="/{{ article + 15 }}#comments"
+                                    {% else %} href="/{{ article }}#comments" {% endif %}>Коментари</time>
+                                </span>
+                            </div>
+                        </header>
+                    </article>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+{% endblock %}
